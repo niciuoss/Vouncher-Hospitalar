@@ -1,0 +1,6 @@
+@SistemaVoucher_HostAddress = http://localhost:5100
+
+GET {{SistemaVoucher_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

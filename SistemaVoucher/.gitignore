@@ -1,0 +1,63 @@
+﻿# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+out/
+
+# NuGet
+*.nupkg
+packages/
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Rider (caso use JetBrains Rider)
+.idea/
+*.sln.iml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Logs
+*.log
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.codecoverage
+
+# Others
+*.dbmdl
+*.bak
+*.orig
+*.swp
+*.tmp
+
+# User-specific files
+*.vspscc
+*.vssscc
+
+# Entity Framework
+Migrations/
+
+# Mac/Linux
+.DS_Store
+Thumbs.db
+
+# Docker
+**/.dockerignore
+**/Dockerfile
