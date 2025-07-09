@@ -18,6 +18,18 @@ namespace SistemaVoucher.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            // Configuração global para DateTime
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                foreach (var property in entityType.GetProperties())
+                {
+                    if (property.ClrType == typeof(DateTime) || property.ClrType == typeof(DateTime?))
+                    {
+                        property.SetColumnType("timestamp without time zone");
+                    }
+                }
+            }
+
             // Configuração da entidade Paciente
             modelBuilder.Entity<Paciente>(entity =>
             {
@@ -109,7 +121,7 @@ namespace SistemaVoucher.Data
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin123"), // Senha padrão
                     Role = TipoUsuario.Admin,
                     Ativo = true,
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, DateTimeKind.Unspecified)
                 }
             );
 
@@ -125,7 +137,7 @@ namespace SistemaVoucher.Data
                     Nome = "Sala 01",
                     Especialidade = "Clínico Geral",
                     Ativa = true,
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, DateTimeKind.Unspecified)
                 },
                 new Sala
                 {
@@ -133,7 +145,7 @@ namespace SistemaVoucher.Data
                     Nome = "Sala 02",
                     Especialidade = "Pediatria",
                     Ativa = true,
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, DateTimeKind.Unspecified)
                 },
                 new Sala
                 {
@@ -141,7 +153,7 @@ namespace SistemaVoucher.Data
                     Nome = "Sala 03",
                     Especialidade = "Ginecologia",
                     Ativa = true,
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, DateTimeKind.Unspecified)
                 }
             );
         }

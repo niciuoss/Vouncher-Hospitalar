@@ -28,7 +28,7 @@ namespace SistemaVoucher.Models
 
         public int? TempoEstimado { get; set; } // em minutos
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified);
 
         public DateTime? ChamadoAt { get; set; }
 

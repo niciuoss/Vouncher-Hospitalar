@@ -23,7 +23,7 @@ namespace SistemaVoucher.Models
 
         public DateTime DataNascimento { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified);
 
         // Navigation Properties
         public virtual ICollection<Fila> Filas { get; set; } = new List<Fila>();

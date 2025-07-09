@@ -15,7 +15,7 @@ namespace SistemaVoucher.Models
 
         public bool Ativa { get; set; } = true;
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified);
 
         // Navigation Properties
         public virtual ICollection<Fila> Filas { get; set; } = new List<Fila>();

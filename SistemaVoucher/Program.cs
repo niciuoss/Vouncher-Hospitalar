@@ -19,7 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Configure JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-var secretKey = Encoding.ASCII.GetBytes(jwtSettings["SecretKey"]);
+var secretKey = Encoding.ASCII.GetBytes(jwtSettings["SecretKey"] ?? throw new InvalidOperationException("SecretKey não configurada"));
 
 builder.Services.AddAuthentication(x =>
 {
@@ -46,6 +46,7 @@ builder.Services.AddScoped<IFilaService, FilaService>();
 builder.Services.AddScoped<IPacienteService, PacienteService>();
 builder.Services.AddScoped<ISalaService, SalaService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ISignalRService, SignalRService>();
 
 // Configure SignalR
 builder.Services.AddSignalR();

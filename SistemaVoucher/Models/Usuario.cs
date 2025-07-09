@@ -23,7 +23,7 @@ namespace SistemaVoucher.Models
 
         public bool Ativo { get; set; } = true;
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified);
 
         public DateTime? LastLoginAt { get; set; }
     }

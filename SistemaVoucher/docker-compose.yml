@@ -6,10 +6,12 @@ services:
       POSTGRES_DB: sistemavoucher_dev
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres123
+      PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
     networks:
       - sistemavoucher_network
 
@@ -17,11 +19,12 @@ services:
     image: adminer
     container_name: sistemavoucher_adminer
     ports:
-      - "8085:8085"
+      - "8085:8080"
     networks:
       - sistemavoucher_network
     depends_on:
       - postgres
+    restart: unless-stopped
 
 volumes:
   postgres_data:
